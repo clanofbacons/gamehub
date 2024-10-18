@@ -8,28 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games for Sierramont</title>
     <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
             padding: 0;
-            text-align: center;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
+            text-align: center;
         }
 
         h1 {
             color: #4CAF50;
             margin-bottom: 30px;
+            font-size: 36px;
         }
 
-        input[type="text"] {
+        #searchBar {
             width: 100%;
             padding: 12px 20px;
             margin: 8px 0;
@@ -39,42 +41,111 @@
             font-size: 16px;
         }
 
+        #searchBar:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
         .games-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             list-style: none;
             padding: 0;
-            margin: 0;
         }
 
         .games-list li {
-            margin-bottom: 10px;
+            margin: 10px;
+            width: 200px;
         }
 
         .games-list a {
-            display: inline-block;
-            padding: 10px 15px;
+            display: block;
+            padding: 10px;
             background-color: #4CAF50;
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 8px;
             transition: background-color 0.3s;
+            text-align: center;
+            font-size: 18px;
         }
 
         .games-list a:hover {
             background-color: #45a049;
         }
 
+        /* Add some hover effects */
+        .games-list li:hover {
+            transform: scale(1.05);
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Game thumbnails */
+        .games-list img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        /* Sticky search bar */
+        #searchBar {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            z-index: 100;
+        }
+
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: #2c2c2c;
+            color: #f4f4f4;
+        }
+
+        body.dark-mode h1 {
+            color: #ff9800;
+        }
+
+        body.dark-mode #searchBar {
+            background-color: #333;
+            border-color: #ff9800;
+            color: #fff;
+        }
+
+        body.dark-mode .games-list a {
+            background-color: #ff9800;
+        }
+
+        body.dark-mode .games-list a:hover {
+            background-color: #ff7700;
+        }
+
         footer {
             margin-top: 50px;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            text-align: center;
         }
 
         .footer-links a {
-            color: #4CAF50;
+            color: #ff9800;
             text-decoration: none;
             margin: 0 15px;
         }
 
         .footer-links a:hover {
             text-decoration: underline;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 20px;
         }
     </style>
 </head>
@@ -83,93 +154,24 @@
 <div class="container">
     <h1>Sierramont Games</h1>
 
+    <div class="theme-toggle" onclick="toggleTheme()">Toggle Light/Dark Mode</div>
+
     <input type="text" id="searchBar" onkeyup="searchGames()" placeholder="Search for games...">
 
     <ul id="gamesList" class="games-list">
-        <!-- Game buttons inserted from the previous list -->
-        <li><a href="1">1</a></li>
-        <li><a href="1v1.lol">1v1.LOL</a></li>
-        <li><a href="10minutestilldawn">10 Minutes Till Dawn</a></li>
-        <li><a href="2048-multitask">2048 Multitask</a></li>
-        <li><a href="2048">2048</a></li>
-        <li><a href="adanceoffireandice">A Dance of Fire And Ice</a></li>
-        <li><a href="adarkroom">A Dark Room</a></li>
-        <li><a href="adrenalinechallenge">Adrenaline Challenge</a></li>
-        <li><a href="adventuredrivers">Adventure Drivers</a></li>
-        <li><a href="asteroids">Asteroids</a></li>
-        <li><a href="astray">Astray</a></li>
-        <li><a href="backcountry">Backcountry</a></li>
-        <li><a href="badicecream">Bad Ice Cream</a></li>
-        <li><a href="badicecream2">Bad Ice Cream 2</a></li>
-        <li><a href="badicecream3">Bad Ice Cream 3</a></li>
-        <li><a href="basketrandom">Basket Random</a></li>
-        <li><a href="bitlife">BitLife</a></li>
-        <li><a href="bounceback">Bounceback</a></li>
-        <li><a href="boxingrandom">Boxing Random</a></li>
-        <li><a href="breaklock">BreakLock</a></li>
-        <li><a href="breakout">Breakout</a></li>
-        <li><a href="chess">Chess</a></li>
-        <li><a href="chromedino">Chrome Dino</a></li>
-        <li><a href="connect3">Connect 3</a></li>
-        <li><a href="cookieclicker">Cookie Clicker</a></li>
-        <li><a href="cubefield">Cubefield</a></li>
-        <li><a href="doodlejump">Doodle Jump</a></li>
-        <li><a href="ducklife">Duck Life</a></li>
-        <li><a href="ducklife2">Duck Life 2</a></li>
-        <li><a href="ducklife3">Duck Life 3</a></li>
-        <li><a href="ducklife4">Duck Life 4</a></li>
-        <li><a href="edgesurf">Edge Surf</a></li>
-        <li><a href="evilglitch">Evil Glitch</a></li>
-        <li><a href="factoryballsforever">Factory Balls Forever</a></li>
-        <li><a href="fireboyandwatergirlintheforesttemple">Fireboy and Watergirl in the Forest Temple</a></li>
-        <li><a href="flappybird">Flappy Bird</a></li>
-        <li><a href="friendlyfire">Friendly Fire</a></li>
-        <li><a href="geometrydash">Geometry Dash</a></li>
-        <li><a href="gopherkart">Gopher Kart</a></li>
-        <li><a href="gun-mayhem">Gun Mayhem</a></li>
-        <li><a href="gun-mayhem-2">Gun Mayhem 2</a></li>
-        <li><a href="gun-mayhem-redux">Gun Mayhem Redux</a></li>
-        <li><a href="hextris">Hextris</a></li>
-        <li><a href="iceagebabyadventure">Ice Age Baby Adventure</a></li>
-        <li><a href="jumpingfrogspuzzle">Jumping Frogs Puzzle</a></li>
-        <li><a href="konnekt">Konnekt</a></li>
-        <li><a href="minecraft0.30">Minecraft 0.30</a></li>
-        <li><a href="minecraft1.3">Minecraft 1.3</a></li>
-        <li><a href="minecraft1.5.2">Minecraft 1.5.2</a></li>
-        <li><a href="motox3m2">Moto X3M 2</a></li>
-        <li><a href="ovo">OvO</a></li>
-        <li><a href="pacman">Pac-Man</a></li>
-        <li><a href="pushback">Pushback</a></li>
-        <li><a href="racer">Racer</a></li>
-        <li><a href="radiusraid">Radius Raid</a></li>
-        <li><a href="retrobowl">Retro Bowl</a></li>
-        <li><a href="retrohaunt">Retrohaunt</a></li>
-        <li><a href="riddleschool">Riddle School</a></li>
-        <li><a href="riddleschool2">Riddle School 2</a></li>
-        <li><a href="riddleschool3">Riddle School 3</a></li>
-        <li><a href="riddleschool4">Riddle School 4</a></li>
-        <li><a href="riddleschool5">Riddle School 5</a></li>
-        <li><a href="roadblocks">Roadblocks</a></li>
-        <li><a href="sleepingbeauty">Sleeping Beauty</a></li>
-        <li><a href="slope">Slope</a></li>
-        <li><a href="snake">Snake</a></li>
-        <li><a href="snowrider3d">Snow Rider 3D</a></li>
-        <li><a href="soccerrandom">Soccer Random</a></li>
-        <li><a href="spacecompany">Space Company</a></li>
-        <li><a href="spaceinvaders">Space Invaders</a></li>
-        <li><a href="tetris">Tetris</a></li>
-        <li><a href="thechromaincident">The Chroma Incident</a></li>
-        <li><a href="thereisnogame">There Is No Game</a></li>
-        <li><a href="towermaster">Tower Master</a></li>
-        <li><a href="tunnelrush">Tunnel Rush</a></li>
-        <li><a href="underrun">Under Run</a></li>
-        <li><a href="vex3">Vex 3</a></li>
-        <li><a href="vex4">Vex 4</a></li>
-        <li><a href="vex5">Vex 5</a></li>
-        <li><a href="whackyourboss">Whack Your Boss</a></li>
-        <li><a href="whackyourneighbour">Whack Your Neighbour</a></li>
-        <li><a href="wobbledogs">Wobbledogs</a></li>
-        <li><a href="worlds-biggest-pacman">World's Biggest Pac-Man</a></li>
+        <li>
+            <a href="1">
+                <img src="https://via.placeholder.com/150" alt="Game 1">
+                1
+            </a>
+        </li>
+        <li>
+            <a href="1v1.lol">
+                <img src="https://via.placeholder.com/150" alt="1v1.LOL">
+                1v1.LOL
+            </a>
+        </li>
+        <!-- Additional games with thumbnails -->
     </ul>
 </div>
 
@@ -178,7 +180,9 @@
         <a href="#">Home</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
+        <a href="#">Privacy</a>
     </div>
+    <p>&copy; 2024 Sierramont Games. All rights reserved.</p>
 </footer>
 
 <script>
@@ -196,6 +200,11 @@
                 games[i].style.display = "none";
             }
         }
+    }
+
+    // Dark/Light mode toggle
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
     }
 </script>
 
