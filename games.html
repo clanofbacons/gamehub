@@ -15,17 +15,17 @@
         }
         
         body {
-            background-color: #121212;
-            color: #ffffff;
+            background-color: #f4f4f4;
+            color: #333;
         }
         
         header {
-            background-color: #1e1e1e;
+            background-color: #ffffff;
             padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .header-content {
@@ -57,15 +57,16 @@
             padding: 10px 40px 10px 15px;
             border-radius: 25px;
             border: none;
-            background-color: #333;
-            color: white;
+            background-color: #f0f0f0;
+            color: #333;
             font-size: 1rem;
             outline: none;
             transition: all 0.3s ease;
+            border: 1px solid #ddd;
         }
         
         .search-bar:focus {
-            background-color: #444;
+            background-color: #fff;
             box-shadow: 0 0 0 2px #2bc48a;
         }
         
@@ -111,12 +112,13 @@
         }
         
         .game-card {
-            background: #1e1e1e;
+            background: #ffffff;
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
             position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         
         .game-card:hover {
@@ -137,6 +139,7 @@
         .game-title {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;
+            color: #333;
         }
         
         .all-games {
@@ -144,9 +147,10 @@
         }
         
         footer {
-            background-color: #1e1e1e;
+            background-color: #ffffff;
             padding: 2rem 1rem;
             text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
         }
         
         .footer-links {
@@ -157,7 +161,7 @@
         }
         
         .footer-link {
-            color: #aaa;
+            color: #666;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -167,7 +171,7 @@
         }
         
         .copyright {
-            color: #aaa;
+            color: #666;
             font-size: 0.9rem;
         }
         
@@ -184,9 +188,6 @@
         .game-card:nth-child(3) { animation-delay: 0.1s; }
         .game-card:nth-child(4) { animation-delay: 0.15s; }
         .game-card:nth-child(5) { animation-delay: 0.2s; }
-        .game-card:nth-child(6) { animation-delay: 0.25s; }
-        .game-card:nth-child(7) { animation-delay: 0.3s; }
-        .game-card:nth-child(8) { animation-delay: 0.35s; }
         
         .play-btn {
             position: absolute;
@@ -243,60 +244,60 @@
             background-color: #1fa36d;
         }
         
-        /* Light mode styles */
-        body.light-mode {
-            background-color: #f4f4f4;
-            color: #333;
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
         }
         
-        body.light-mode header {
-            background-color: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        body.dark-mode header {
+            background-color: #1e1e1e;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
         
-        body.light-mode .logo {
+        body.dark-mode .logo {
             color: #2bc48a;
         }
         
-        body.light-mode .logo span {
+        body.dark-mode .logo span {
             color: #ff5e5e;
         }
         
-        body.light-mode .search-bar {
-            background-color: #f0f0f0;
-            color: #333;
-            border: 1px solid #ddd;
+        body.dark-mode .search-bar {
+            background-color: #333;
+            color: white;
+            border: none;
         }
         
-        body.light-mode .search-bar:focus {
-            background-color: #fff;
+        body.dark-mode .search-bar:focus {
+            background-color: #444;
             box-shadow: 0 0 0 2px #2bc48a;
         }
         
-        body.light-mode .game-card {
-            background: #ffffff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        body.dark-mode .game-card {
+            background: #1e1e1e;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
         
-        body.light-mode .game-title {
-            color: #333;
+        body.dark-mode .game-title {
+            color: #ffffff;
         }
         
-        body.light-mode footer {
-            background-color: #ffffff;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        body.dark-mode footer {
+            background-color: #1e1e1e;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
         }
         
-        body.light-mode .footer-links a {
-            color: #666;
+        body.dark-mode .footer-links a {
+            color: #aaa;
         }
         
-        body.light-mode .footer-links a:hover {
+        body.dark-mode .footer-links a:hover {
             color: #2bc48a;
         }
         
-        body.light-mode .copyright {
-            color: #666;
+        body.dark-mode .copyright {
+            color: #aaa;
         }
     </style>
 </head>
@@ -426,7 +427,7 @@
             {id: "whackyourboss", title: "Whack Your Boss"},
             {id: "whackyourneighbour", title: "Whack Your Neighbour"},
             {id: "wobbledogs", title: "Wobbledogs"},
-            {id: "worlds-biggest-pacman", title: "World's Biggest Pac-Man"}
+            {id: "worlds-biggest-pacman", title: "World's Biggest Pacman"}
         ];
         
         // Store recently played games in localStorage
@@ -468,8 +469,8 @@
                 return;
             }
             
-            // Display up to 8 recently played games
-            const gamesToShow = recentlyPlayed.slice(0, 8);
+            // Display up to 5 recently played games (changed from 8)
+            const gamesToShow = recentlyPlayed.slice(0, 5);
             
             gamesToShow.forEach(game => {
                 const gameCard = document.createElement('div');
@@ -553,18 +554,18 @@
         
         // Toggle theme
         function toggleTheme() {
-            document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode');
             
             // Save theme preference to localStorage
-            const isLightMode = document.body.classList.contains('light-mode');
-            localStorage.setItem('lightMode', isLightMode);
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
         }
         
         // Load saved theme preference
         document.addEventListener('DOMContentLoaded', function() {
-            const isLightMode = localStorage.getItem('lightMode') === 'true';
-            if (isLightMode) {
-                document.body.classList.add('light-mode');
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
             }
             
             // Display all games and recent games on page load
